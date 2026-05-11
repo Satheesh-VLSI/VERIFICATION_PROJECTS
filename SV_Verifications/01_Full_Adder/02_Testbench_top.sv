@@ -1,6 +1,4 @@
 
-
-
 module tb_top;
   
   logic clk;
@@ -23,6 +21,9 @@ module tb_top;
   initial begin 
      #20;
     env=new(inf);
+    $display("============================================");
+    $display("    VERIFFICATION OF FULL ADDER STARTED");
+    $display("============================================");
     env.test();
     #20;
     $finish;
@@ -31,3 +32,5 @@ module tb_top;
   
   
 endmodule:tb_top
+
+  
