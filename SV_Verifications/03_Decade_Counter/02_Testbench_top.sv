@@ -1,36 +1,28 @@
 
+//=======================
+//    TESTBENCH TOP
+//=======================
 module tb_top;
-  
   logic clk;
   initial clk=0;
   always #5 clk=~clk;
-  
-  //INTERFACE Instantiation
-  FA_INTERTFACE inf(clk);
-  
-  
-  //DUT instantiation
-  full_adder fa1(.a(inf.a),
-                 .b(inf.b),
-                 .cin(inf.cin),
-                 .sum(inf.sum),
-                 .carry(inf.cout));
-  
-    Environment env;
-  
-  initial begin 
-     #20;
+//INterface instantiation
+  DECADE_CNT_INTERFACE inf(clk);
+//DUT Instantiation
+  Decade dut(.clk(inf.clk),
+             .rst(inf.rst),
+             .Q(inf.q));
+//environment class call
+  Environment env;
+
+  initial begin
+    
     env=new(inf);
-    $display("============================================");
-    $display("    VERIFFICATION OF FULL ADDER STARTED");
-    $display("============================================");
+    $display("==================================================================");
+    $display("    SYNC DECADE COUNTER WITH SYNC RESET VERIFICATION STARTED");
+    $display("==================================================================");
     env.test();
     #20;
     $finish;
-    
-  end 
-  
-  
-endmodule:tb_top
-
-  
+  end
+endmodule
