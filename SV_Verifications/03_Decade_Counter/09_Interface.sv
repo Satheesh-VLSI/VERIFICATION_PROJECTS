@@ -1,7 +1,17 @@
-//INTERFACE
+//=============================
+//         INTERFACE 
+//=============================
+interface DECADE_CNT_INTERFACE(input logic clk);
+  logic rst;
+  logic [3:0] q;
 
-interface FA_INTERTFACE(input logic clk);
-  logic a,b,cin;
-  logic sum,cout;
+  clocking cb @(posedge clk);
+    default input #1step output #0;
+    input q;
+    output rst;
+  endclocking
+
+  modport DUT (input rst,clk,output q);
+  modport TB  (clocking cb);
+    
 endinterface
-
