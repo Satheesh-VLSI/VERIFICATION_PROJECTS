@@ -1,11 +1,12 @@
-
-module full_adder(input a, b, cin, output sum,carry);
-wire w1,w2,w3;
-
-xor(w1,a,b);
-xor(sum,w1,cin);
-
-assign w2 = a & b;
-assign w3 = w1 & cin;
-assign carry = w2 | w3;
+//DUT
+module Decade (input clk,rst,output reg [3:0]Q);
+  
+  always @(posedge clk) begin
+    if (rst)
+      Q<=4'b0000;
+    else if (Q==4'b1001)
+      Q<=4'b0000;
+    else
+      Q<=Q+1;
+  end
 endmodule
