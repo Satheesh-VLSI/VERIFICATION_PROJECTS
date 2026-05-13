@@ -7,7 +7,7 @@ class Generator;
   mailbox #(Transaction) gen2drv;
 
   function new(mailbox #(Transaction) gen2drv);
-    this.gen2drv=gen2drv;
+    this.gen2drv=gen2drv; 
   endfunction
 
   task main();
