@@ -130,7 +130,6 @@ DESIGN STATUS:
 | Parameter | Status |
 |---|---|
 | DUT | Full Adder |
-| Verification Type | Functional Verification |
 | Transactions Tested | 100 |
 | Errors Detected | 0 |
 | Verification Result | PASSED |
@@ -144,4 +143,3 @@ DESIGN STATUS:
 - Sum output matched expected functionality
 - Carry output validated correctly
 - No mismatches detected during simulation
-- Monitor and scoreboard verification completed successfully
