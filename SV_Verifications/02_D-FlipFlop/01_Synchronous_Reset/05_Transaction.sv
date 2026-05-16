@@ -1,5 +1,3 @@
-
-
 //===============================
 //         TRANSACTION
 //===============================
@@ -13,4 +11,4 @@ class Transaction;
   function void display(string name);
     $display("[%s] d=%0b rst=%0b q=%0b",name,d,rst,q);
   endfunction
-endclass
+endclass:Transaction
