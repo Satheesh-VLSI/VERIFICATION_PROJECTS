@@ -131,6 +131,7 @@ Total Errors = 0
 
 | Parameter | Status |
 |---|---|
+| DUT | D Flipflop |
 | Reset Type | Synchronous Reset |
 | Total Transactions | 100 |
 | Errors Detected | 0 |
