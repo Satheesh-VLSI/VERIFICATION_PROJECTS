@@ -132,7 +132,7 @@ Total Errors = 0
 | Parameter | Status |
 |---|---|
 | DUT | Synchronous Decade Counter |
-| Counter Type | MOD-10 Counter |
+| Counter Type | MOD-10 Counter(Decade) |
 | Reset Type | Synchronous Reset |
 | Transactions Tested | 100 |
 | Errors Detected | 0 |
