@@ -5,7 +5,7 @@
 ```diff
 + SIMULATION PASSED
 + Total Errors : 0
-+ Verification Type : Synchronous Reset DFF
++ DUT : Synchronous Reset DFF
 ```
 
 ---
