@@ -1,4 +1,4 @@
-# Asynchronous Reset D Flip-Flop Verification Results
+# D Flip-Flop(Asynchronous Reset) Verification Results
 
 ## Simulation Status
 
