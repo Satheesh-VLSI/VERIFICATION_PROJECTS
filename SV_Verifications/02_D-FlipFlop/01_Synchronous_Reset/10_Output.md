@@ -131,8 +131,9 @@ Total Errors = 0
 
 | Parameter | Status |
 |---|---|
-| DUT | D Flipflop |
+| DUT | D Flip-Flop |
 | Reset Type | Synchronous Reset |
+| Trigger Type | Positive Edge Triggered |
 | Total Transactions | 100 |
 | Errors Detected | 0 |
 | Verification Result | PASSED |
