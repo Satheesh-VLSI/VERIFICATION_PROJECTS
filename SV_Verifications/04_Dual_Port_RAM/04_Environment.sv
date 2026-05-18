@@ -1,0 +1,46 @@
+//========================
+//     ENVIRONMENT
+//========================
+class Environment;
+
+  Generator gen;
+  Driver drv;
+  Monitor mon;
+  Scoreboard scr;
+
+  mailbox #(Transaction) gen2drv;
+  mailbox #(Transaction) mon2scr;
+
+  function new(virtual RAM_INTERFACE inf);
+
+    gen2drv=new();
+    mon2scr=new();
+
+    gen=new(gen2drv);
+    drv=new(inf,gen2drv);
+    mon=new(inf,mon2scr);
+    scr=new(mon2scr);
+
+  endfunction
+
+  task test();
+
+    fork
+      begin
+        fork
+          gen.main();
+          drv.main();
+          mon.main();
+          scr.main();
+        join_none
+        @(scr.done);
+        disable fork;
+      end
+    join
+  endtask
+        
+endclass : Environment
+
+
+
+        
