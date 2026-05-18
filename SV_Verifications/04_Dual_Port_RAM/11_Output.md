@@ -4365,8 +4365,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ---
 
-# Collision Verification
-
 ## Verified Collision Scenarios
 
 | Collision Type | Status |
@@ -4379,7 +4377,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ---
 
-# Features Verified
+## Features Verified
 
 | Feature | Status |
 |---|---|
