@@ -3856,17 +3856,11 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | Parameter | Status |
 |---|---|
 | DUT | Synchronous FIFO |
+| Reset Type | Synchronous Reset |
 | FIFO Depth | 16 |
 | Data Width | 8-bit |
 | Read/Write Type | Synchronous |
 | FIFO Architecture | Circular Buffer(Without Empty Slot) |
-| Randomized Testing | PASSED |
-| Pointer Wrap Around | PASSED |
-| Overflow Testing | PASSED |
-| Underflow Testing | PASSED |
-| Concurrent Read/Write | PASSED |
-| Total Errors | 0 |
-| Verification Result | PASSED |
 
 ---
 
