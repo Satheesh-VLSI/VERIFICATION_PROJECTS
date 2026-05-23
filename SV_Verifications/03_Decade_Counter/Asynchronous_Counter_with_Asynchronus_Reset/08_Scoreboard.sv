@@ -1,5 +1,4 @@
-endclass
-    
+
 //===========================
 //        SCOREBOARD 
 //===========================
@@ -57,3 +56,11 @@ class Scoreboard;
     $display("===================================");
     
     if(error_cnt == 0) 
+      $display("ASYNC DECADE COUNTER VERIFICATION PASSED");
+    else               
+      $display("ASYNC DECADE COUNTER VERIFICATION FAILED");
+      
+    $display("Total Errors = %0d", error_cnt);
+    $display("===================================\n");
+  endtask
+endclass:Scoreboard
