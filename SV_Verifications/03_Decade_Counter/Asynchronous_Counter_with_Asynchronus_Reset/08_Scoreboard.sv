@@ -1,11 +1,13 @@
+endclass
+    
 //===========================
-//       SCOREBOARD 
+//        SCOREBOARD 
 //===========================
 class Scoreboard;
   mailbox #(Transaction) mon2scr;
   
   bit [3:0] expected_q; 
-  bit prev_rst=1;
+  
   
   int count;
   int error_cnt;
@@ -21,7 +23,7 @@ class Scoreboard;
       mon2scr.get(trans);
 
       
-      if(prev_rst) begin 
+      if(trans.rst) begin 
         expected_q = 0;
       end else begin
         if(expected_q != 9)
@@ -30,7 +32,7 @@ class Scoreboard;
           expected_q = 0;
       end
 
-      // Compare
+      
       if(expected_q != trans.q) begin
         error_cnt++;
         $display("--------------------------------");
@@ -40,8 +42,6 @@ class Scoreboard;
         $display("--------------------------------");
       end
       
-      prev_rst=trans.rst; 
-
       count++;
       if(count == 100) begin
         verdict();
@@ -55,14 +55,5 @@ class Scoreboard;
     $display("\n===================================");
     $display("        DESIGN STATUS");
     $display("===================================");
-
     
     if(error_cnt == 0) 
-      $display("DECADE COUNTER VERIFICATION PASSED");
-    else               
-      $display("DECADE COUNTER VERIFICATION FAILED");
-      
-    $display("Total Errors = %0d", error_cnt);
-    $display("===================================\n");
-  endtask
-endclass:Scoreboard
