@@ -26,3 +26,4 @@ class Monitor;
       trans.display("MONITOR");
     end
   endtask
+endclass
