@@ -1,8 +1,8 @@
 # Synchronous Decade Counter Verification Results
 
 ![Status](https://img.shields.io/badge/Simulation-PASSED-brightgreen)
-![DUT](https://img.shields.io/badge/DUT-Asynchronous%20Decade%20Counter-blue)
-![Reset-Type](https://img.shields.io/badge/Reset-Asynchronous-orange)
+![DUT](https://img.shields.io/badge/DUT-Synchronous%20Decade%20Counter-blue)
+![Reset-Type](https://img.shields.io/badge/Reset-Synchronous-orange)
 ![Errors](https://img.shields.io/badge/Errors-0-success)
 
 ---
