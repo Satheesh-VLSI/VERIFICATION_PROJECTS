@@ -32,6 +32,96 @@ The verification includes:
 ---
 
 
+# Verification Summary
+
+| Parameter | Status |
+|---|---|
+| DUT | Dual Port RAM |
+| Address Width | 6-bit |
+| Data Width | 8-bit |
+| Read/Write Type | Synchronous |
+| Ports | Dual Independent Ports |
+| Port Priority during Collision | Port A -> Port B |
+| Randomized Testing | PASSED |
+| Collision Testing | PASSED |
+| Reset Testing | PASSED |
+| Reset Test | PASSED |
+| Random Stress Operations | PASSED |
+| Functional Coverage | PASSED |
+| Total Errors | 0 |
+| Verification Result | PASSED |
+
+---
+
+## Verified Collision Scenarios
+
+| Collision Type | Status |
+|---|---|
+| Write-Write Collision | PASSED |
+| Read-Read Collision | PASSED |
+| Read-Write Collision | PASSED |
+| Write-Read Collision | PASSED |
+| Mixed Collision | PASSED |
+
+---
+
+
+## Functional Coverage
+
+| Coverage Type |
+|---|
+| Read Operation Coverage |
+| Write Operation Coverage|
+| Port A Transaction Coverage|
+| Port B Transaction Coverage|
+| Collision Coverage  |
+| Address Coverage |
+| Reset Coverage |
+| Transition Coverage  |
+
+---
+
+## Features Verified
+
+| Feature | Status |
+|---|---|
+| Simultaneous Dual-Port Access | PASSED |
+| Independent Read Operations | PASSED |
+| Independent Write Operations | PASSED |
+| Concurrent Read/Write Operations | PASSED |
+| Address Collision Handling | PASSED |
+| Reset Functionality | PASSED |
+| Functional Coverage Collection | PASSED |
+| Scoreboard Comparison | PASSED |
+
+---
+
+## Monitor Fields Description
+
+| Signal | Description |
+|---|---|
+| Address A/B | RAM access address for Port A and Port B |
+| Data In A/B | Input data written into memory |
+| Data Out A/B | Output data read from memory |
+| Mode A/B | Read/Write mode control |
+| Reset | Global reset signal for RAM initialization |
+
+---
+
+# Verification Observations
+
+- Dual-port simultaneous access verified successfully
+- Collision handling behavior verified under concurrent operations
+- Read and write functionality validated independently on both ports
+- Reset behavior verified successfully under simulation
+- Functional coverage achieved for all major scenarios
+- Transition coverage verified for read/write operation switching
+- No mismatches detected between expected and actual outputs
+- Scoreboard verification completed successfully
+- DUT maintained correct memory behavior throughout simulation
+
+---
+
 # Console Output
 
 ```systemverilog
@@ -7976,91 +8066,3 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 #             bin <read,read,COLLISION>                      87          1          -    Covered  
 ```
 ---
-
-# Verification Summary
-
-| Parameter | Status |
-|---|---|
-| DUT | Dual Port RAM |
-| Address Width | 6-bit |
-| Data Width | 8-bit |
-| Read/Write Type | Synchronous |
-| Ports | Dual Independent Ports |
-| Port Priority during Collision | Port A -> Port B |
-| Randomized Testing | PASSED |
-| Collision Testing | PASSED |
-| Reset Testing | PASSED |
-| Reset Test | PASSED |
-| Random Stress Operations | PASSED |
-| Functional Coverage | PASSED |
-| Total Errors | 0 |
-| Verification Result | PASSED |
-
----
-
-## Verified Collision Scenarios
-
-| Collision Type | Status |
-|---|---|
-| Write-Write Collision | PASSED |
-| Read-Read Collision | PASSED |
-| Read-Write Collision | PASSED |
-| Write-Read Collision | PASSED |
-| Mixed Collision | PASSED |
-
----
-
-
-## Functional Coverage
-
-| Coverage Type |
-|---|
-| Read Operation Coverage |
-| Write Operation Coverage|
-| Port A Transaction Coverage|
-| Port B Transaction Coverage|
-| Collision Coverage  |
-| Address Coverage |
-| Reset Coverage |
-| Transition Coverage  |
-
----
-
-## Features Verified
-
-| Feature | Status |
-|---|---|
-| Simultaneous Dual-Port Access | PASSED |
-| Independent Read Operations | PASSED |
-| Independent Write Operations | PASSED |
-| Concurrent Read/Write Operations | PASSED |
-| Address Collision Handling | PASSED |
-| Reset Functionality | PASSED |
-| Functional Coverage Collection | PASSED |
-| Scoreboard Comparison | PASSED |
-
----
-
-## Monitor Fields Description
-
-| Signal | Description |
-|---|---|
-| Address A/B | RAM access address for Port A and Port B |
-| Data In A/B | Input data written into memory |
-| Data Out A/B | Output data read from memory |
-| Mode A/B | Read/Write mode control |
-| Reset | Global reset signal for RAM initialization |
-
----
-
-# Verification Observations
-
-- Dual-port simultaneous access verified successfully
-- Collision handling behavior verified under concurrent operations
-- Read and write functionality validated independently on both ports
-- Reset behavior verified successfully under simulation
-- Functional coverage achieved for all major scenarios
-- Transition coverage verified for read/write operation switching
-- No mismatches detected between expected and actual outputs
-- Scoreboard verification completed successfully
-- DUT maintained correct memory behavior throughout simulation
