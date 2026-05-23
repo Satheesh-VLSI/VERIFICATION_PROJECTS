@@ -1,3 +1,4 @@
+
 //========================
 //       MONITOR 
 //========================
@@ -35,6 +36,7 @@ class Monitor;
       trans.addr_B=inf.cb1.addr_B;
       trans.mode_A=inf.cb1.mode_A;
       trans.mode_B=inf.cb1.mode_B;
+      trans.rst=inf.cb1.rst;
 
       mon2scr.put(trans);
       trans.display("MONITOR");
@@ -44,3 +46,4 @@ class Monitor;
   endtask
 
 endclass
+    
