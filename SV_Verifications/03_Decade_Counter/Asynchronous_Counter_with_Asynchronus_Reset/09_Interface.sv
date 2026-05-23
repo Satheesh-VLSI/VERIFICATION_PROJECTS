@@ -8,10 +8,9 @@ interface DECADE_CNT_INTERFACE(input logic clk);
   clocking cb @(posedge clk);
     default input #1step output #0;
     input q;
-    output rst;
   endclocking
 
-  modport DUT (input rst,clk,output q);
-  modport TB  (clocking cb);
+  modport DUT (input rst, clk, output q);
+  modport TB  (clocking cb, output rst); // rst is independent
     
 endinterface
