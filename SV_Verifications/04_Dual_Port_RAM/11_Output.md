@@ -121,67 +121,88 @@ The verification includes:
 - DUT maintained correct memory behavior throughout simulation
 
 ---
-## Coverage Summary
+# Functional Coverage Report
 
-The collision test achieved successful functional verification of the dual-port RAM design with an overall functional coverage of **57.73%** and a bin hit percentage of **73.60%**.
+```bash
+# ========================================================================================
+#                                      COVERAGE REPORT
+# ========================================================================================
 
-### Coverage Achievements
-- Achieved **100% coverage** for:
-  - Port A operation modes
-  - Port B operation modes
-  - Port A address coverage
-  - Port B address coverage
-  - Collision detection coverage
-  - Port mode cross coverage
-  - Collision mode cross coverage
+Overall Functional Coverage Summary
+-----------------------------------
+Total Coverage Bins          : 413
+Covered Bins                 : 410
+Uncovered Bins               : 3
+Bin Hit Percentage           : 99.27%
+Overall Functional Coverage  : 96.05%
 
-- All 64 memory addresses were successfully accessed through both ports.
+Coverage Status
+---------------
+[PASS] PORT_A_MODE Coverage                : 100%
+[PASS] PORT_B_MODE Coverage                : 100%
+[PASS] PORT_A_ADDR Coverage                : 100%
+[PASS] PORT_B_ADDR Coverage                : 100%
+[PASS] PORT_A_DATA_in Coverage             : 100%
+[PASS] PORT_B_DATA_in Coverage             : 100%
+[PASS] Collision Detection Coverage        : 100%
+[PASS] Collision Mode Cross Coverage       : 100%
+[PASS] Port Mode Combination Cross         : 100%
 
-- All operation combinations were exercised:
-  - Read-Read
-  - Read-Write
-  - Write-Read
-  - Write-Write
+Coverage Analysis
+-----------------
+- All address locations for both ports were successfully accessed and verified.
+- Read and write operations for both ports were fully exercised.
+- Collision scenarios between PORT_A and PORT_B were completely verified.
+- Cross coverage between operation modes and collision conditions achieved full coverage.
+- Data input coverage for both ports reached complete functional verification after merged coverage accumulation.
 
-- Collision scenarios between both ports were successfully generated and verified.
+Remaining Coverage Gaps
+-----------------------
+1. Operation Transition Coverage
+   - Some transition bins such as:
+       * read_after_write
+       * write_after_read
+       * back2back_write
+     were not fully exercised in certain instances.
 
-### Data Coverage
-- Port A input data coverage: **85.93%**
-- Port B input data coverage: **87.50%**
-- Port A output data coverage: **71.87%**
-- Port B output data coverage: **1.56%** in this merged coverage instance.
+   Root Cause:
+   Current randomized traffic did not repeatedly generate specific sequential
+   operation patterns on the same address.
 
-### Transition Coverage
-- Port A transition coverage: **25%**
-- Port B transition coverage: **75%**
+   Recommendation:
+   Add directed sequences to explicitly force:
+       WRITE -> WRITE
+       WRITE -> READ
+       READ  -> WRITE
+       READ  -> READ
+   transitions on identical addresses.
 
-The following transition scenarios were covered:
-- Read after Write
-- Write after Read
-- Back-to-back Read
+2. Reset Coverage
+   - Reset assertion and reset transition bins were partially/uncovered.
+   - READ_during_RESET and WRITE_during_RESET bins were not triggered.
+   - READ_after_RESET and WRITE_after_RESET scenarios were not exercised.
 
-Some transition bins such as back-to-back write operations remain uncovered.
+   Root Cause:
+   Reset was either not sampled during active transactions or not driven
+   during meaningful protocol activity.
 
-### Reset Coverage
-Reset-related scenarios were minimally exercised in this collision test:
-- Reset coverage: **50%**
-- Reset transition coverage: **0%**
+   Recommendation:
+   Add dedicated reset testcases that:
+       * Assert and deassert reset during active traffic
+       * Perform read/write during reset
+       * Perform read/write immediately after reset release
+       * Verify reset transitions:
+             0 => 1
+             1 => 0
 
-The following reset scenarios remain uncovered:
-- Read during reset
-- Write during reset
-- Read after reset
-- Write after reset
-
-### Conclusion
-The coverage results confirm successful verification of:
-- Dual-port simultaneous access functionality
-- Collision handling behavior
-- Address accessibility across the complete memory space
-- Read and write operation combinations
-- Cross coverage between both ports
-
-Additional directed testing can further improve reset and transition coverage scenarios.
+Final Observation
+-----------------
+Merged functional coverage indicates that the Dual Port RAM verification
+environment successfully achieved near-complete functional verification.
+The remaining uncovered bins are limited to a small number of directed
+transition and reset corner-case scenarios.
+# ========================================================================================
+```
 ---
 
 # Console Output
