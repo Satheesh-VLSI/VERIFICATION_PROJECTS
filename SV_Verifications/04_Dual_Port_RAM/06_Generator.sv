@@ -28,42 +28,54 @@ class Generator;
       trans.addr_B=base_trans.addr_B;
       trans.mode_A=base_trans.mode_A;
       trans.mode_B=base_trans.mode_B;
+      trans.rst=base_trans.rst;
+      
+      if(test_name=="RANDOM") begin
+        trans.rst=0;
+      end
 
       if(test_name=="FULL WRITE") begin
+        trans.rst=0;
         trans.mode_A=1;
         trans.mode_B=1;
       end
 
       if(test_name=="FULL READ") begin
+        trans.rst=0;
         trans.mode_A=0;
         trans.mode_B=0;
       end
 
       if(test_name=="COLLISION_WW") begin
+        trans.rst=0;
         trans.addr_B=trans.addr_A;
         trans.mode_A=1;
         trans.mode_B=1;
       end
       
       else if(test_name=="COLLISION_RW") begin
+        trans.rst=0;
         trans.addr_B=trans.addr_A;
         trans.mode_A=0;
         trans.mode_B=1;
       end
       
       else if(test_name=="COLLISION_WR") begin
+        trans.rst=0;
         trans.addr_B=trans.addr_A;
         trans.mode_A=1;
         trans.mode_B=0;
       end
       
       else if(test_name=="COLLISION_RR") begin
+        trans.rst=0;
         trans.addr_B=trans.addr_A;
         trans.mode_A=0;
         trans.mode_B=0;
       end
       
       else if(test_name=="COLLISION_MIXED") begin
+        trans.rst=0;
         trans.addr_B=trans.addr_A;
       end
 
@@ -85,4 +97,4 @@ class Generator;
   endtask
 
 endclass
-
+    
