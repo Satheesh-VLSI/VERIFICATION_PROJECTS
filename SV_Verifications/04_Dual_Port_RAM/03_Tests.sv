@@ -5,9 +5,13 @@ class basic_test;
 
   Environment env;
 
-  function new(virtual RAM_INTERFACE inf);
-    env=new(inf);
+  function new(virtual RAM_INTERFACE inf,string name);
+    env=new(inf,name);
   endfunction
+  
+  task reset();
+    env.reset_system();
+  endtask
 
   task run_test();
 
@@ -16,8 +20,10 @@ class basic_test;
     $display("                                                 ============================================================");
     
     //random tests
-    env.gen.transaction_cnt=64;
-    env.scr.transaction_cnt=64;
+    
+    env.gen.test_name="RANDOM";
+    env.gen.transaction_cnt=2000;
+    env.scr.transaction_cnt=2000;
     env.scr.skip_en=0;
 
     env.test();
@@ -29,11 +35,46 @@ class basic_test;
   endtask
 
 endclass
+        
+//========================
+//     RESET TEST
+//========================     
+class reset_test extends basic_test;
 
+  function new(virtual RAM_INTERFACE inf,string name);
+    super.new(inf,name);
+  endfunction
+
+  task run_test();
+    $display("                                           ============================================================");
+    $display("                                           |-------------- RUNNING FULL WRITE-READ  TEST -------------|");
+    $display("                                           ============================================================");
+
+    $display("---------------------------------");
+    $display("     RUNNING RESET TEST");
+    $display("---------------------------------");
+
+    env.gen.test_name="RESET";
+    env.gen.transaction_cnt=500;
+    env.scr.transaction_cnt=500;
+    env.scr.skip_en=0;
+    env.test();
+
+    $display("=========================================================================================================================================================================================");
+    $display("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+    $display("=========================================================================================================================================================================================");
+
+  endtask
+
+endclass
+
+//========================
+//  FULL Read-Write TEST
+//========================  
 class full_write_read extends basic_test;
 
-  function new(virtual RAM_INTERFACE inf);
-    super.new(inf);
+  function new(virtual RAM_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -71,10 +112,14 @@ class full_write_read extends basic_test;
 
 endclass
 
+//========================
+//    COLLISION TEST
+//========================  
+
 class collision_test extends basic_test;
 
-  function new(virtual RAM_INTERFACE inf);
-    super.new(inf);
+  function new(virtual RAM_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -146,4 +191,9 @@ class collision_test extends basic_test;
   endtask
 
 endclass
-
+        
+        
+//===========================
+//      TESTBENCH TOP
+//===========================
+module tb_top;
