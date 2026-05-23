@@ -2,7 +2,8 @@
 //       SCOREBOARD 
 //===========================
 class Scoreboard;
-
+  
+  Coverage Cover;                //coverage class object
   mailbox #(Transaction) mon2scr;
 
   bit [7:0] Queue_A[$];
@@ -23,8 +24,9 @@ class Scoreboard;
 
   bit skip_en;
 
-  function new(mailbox #(Transaction) mon2scr);
+  function new(mailbox #(Transaction) mon2scr,string name);
     this.mon2scr=mon2scr;
+    Cover=new(name);
   endfunction
 
   task main();
@@ -32,6 +34,16 @@ class Scoreboard;
     forever begin
       Transaction trans;
       mon2scr.get(trans);
+      Cover.sample(trans); //sampling function called froom coverage class
+      
+      if (trans.rst) begin
+        memory.delete();
+        Queue_A.delete();
+        Queue_B.delete();
+        
+        count++;
+        continue; // Skip the rest of the checks for this transaction
+      end
 
       if(skip_en) begin
         skip_en=0;
@@ -81,21 +93,35 @@ class Scoreboard;
           memory[trans.addr_A]=trans.data_in_A;
       end
 
-      //----------Process current reads---------------
+     //----------Process current reads---------------
       if(trans.addr_A!=trans.addr_B) begin
-        if(!trans.mode_A)
-          Queue_A.push_back(memory[trans.addr_A]);
+        if(!trans.mode_A) begin
+          if (memory.exists(trans.addr_A))
+            Queue_A.push_back(memory[trans.addr_A]);
+          else
+            Queue_A.push_back(0); 
+        end
 
         if(!trans.mode_B) begin
-          old_read=memory[trans.addr_B];
-          Queue_B.push_back(memory[trans.addr_B]);
+          if (memory.exists(trans.addr_B)) begin
+            old_read = memory[trans.addr_B];
+            Queue_B.push_back(memory[trans.addr_B]);
+          end else begin
+            old_read = 0;
+            Queue_B.push_back(0); 
+          end
         end
 
       end
       //collision scenario
       else begin
-        if(!trans.mode_A)
-          Queue_A.push_back(memory[trans.addr_A]);
+        if(!trans.mode_A) begin
+          
+          if (memory.exists(trans.addr_A))
+            Queue_A.push_back(memory[trans.addr_A]);
+          else
+            Queue_A.push_back(0); 
+        end
 
         if(!trans.mode_B)
           Queue_B.push_back(old_read);
@@ -136,6 +162,3 @@ class Scoreboard;
   endtask
 
 endclass
-
-
-
