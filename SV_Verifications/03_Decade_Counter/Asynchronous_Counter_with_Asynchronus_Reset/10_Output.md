@@ -4,7 +4,6 @@
 ![DUT](https://img.shields.io/badge/DUT-Asynchronous%20Decade%20Counter-blue)
 ![Reset-Type](https://img.shields.io/badge/Reset-Asynchronous-orange)
 ![Errors](https://img.shields.io/badge/Errors-0-success)
-![Coverage](https://img.shields.io/badge/Coverage-Implicit%20Checked-lightgrey)
 
 ---
 
