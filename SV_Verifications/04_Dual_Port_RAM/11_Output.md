@@ -121,6 +121,68 @@ The verification includes:
 - DUT maintained correct memory behavior throughout simulation
 
 ---
+## Coverage Summary
+
+The collision test achieved successful functional verification of the dual-port RAM design with an overall functional coverage of **57.73%** and a bin hit percentage of **73.60%**.
+
+### Coverage Achievements
+- Achieved **100% coverage** for:
+  - Port A operation modes
+  - Port B operation modes
+  - Port A address coverage
+  - Port B address coverage
+  - Collision detection coverage
+  - Port mode cross coverage
+  - Collision mode cross coverage
+
+- All 64 memory addresses were successfully accessed through both ports.
+
+- All operation combinations were exercised:
+  - Read-Read
+  - Read-Write
+  - Write-Read
+  - Write-Write
+
+- Collision scenarios between both ports were successfully generated and verified.
+
+### Data Coverage
+- Port A input data coverage: **85.93%**
+- Port B input data coverage: **87.50%**
+- Port A output data coverage: **71.87%**
+- Port B output data coverage: **1.56%** in this merged coverage instance.
+
+### Transition Coverage
+- Port A transition coverage: **25%**
+- Port B transition coverage: **75%**
+
+The following transition scenarios were covered:
+- Read after Write
+- Write after Read
+- Back-to-back Read
+
+Some transition bins such as back-to-back write operations remain uncovered.
+
+### Reset Coverage
+Reset-related scenarios were minimally exercised in this collision test:
+- Reset coverage: **50%**
+- Reset transition coverage: **0%**
+
+The following reset scenarios remain uncovered:
+- Read during reset
+- Write during reset
+- Read after reset
+- Write after reset
+
+### Conclusion
+The coverage results confirm successful verification of:
+- Dual-port simultaneous access functionality
+- Collision handling behavior
+- Address accessibility across the complete memory space
+- Read and write operation combinations
+- Cross coverage between both ports
+
+Additional directed testing can further improve reset and transition coverage scenarios.
+---
 
 # Console Output
 
