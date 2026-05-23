@@ -121,10 +121,11 @@ The verification includes:
 - DUT maintained correct memory behavior throughout simulation
 
 ---
-# Functional Coverage Report
+# Functional Coverage Summary
 
-```bash# ========================================================================================
-#                                      COVERAGE REPORT
+```bash
+# ========================================================================================
+#                                      COVERAGE REPORT SUMMARY
 # ========================================================================================
 
 Overall Functional Coverage Summary
