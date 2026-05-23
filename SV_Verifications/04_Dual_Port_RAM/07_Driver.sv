@@ -1,4 +1,4 @@
-
+    
 //=======================
 //       DRIVER
 //=======================
@@ -34,10 +34,10 @@ class Driver;
       inf.cb.addr_B<=trans.addr_B;
       inf.cb.mode_A<=trans.mode_A;
       inf.cb.mode_B<=trans.mode_B;
+      inf.cb.rst<=trans.rst;
 
     end
 
   endtask
 
 endclass
-
