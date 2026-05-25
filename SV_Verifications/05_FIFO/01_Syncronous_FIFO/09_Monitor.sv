@@ -1,4 +1,3 @@
-    
 //========================
 //       MONITOR 
 //========================
@@ -37,7 +36,7 @@ class Monitor;
       trans.rst=inf.cb1.rst;
 
       mon2scr.put(trans);
-      trans.display("MONITOR");
+      //trans.display("MONITOR");
 
     end
 
