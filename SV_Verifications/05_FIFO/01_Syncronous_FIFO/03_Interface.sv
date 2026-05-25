@@ -26,3 +26,5 @@ interface FIFO_INTERFACE#(parameter Width =8)(input logic clk);
   modport DUT (input data_in,w_en,r_en,rst,output data_out,full,empty);
   modport TB  (clocking cb,clocking cb1);
 endinterface
+    
+    
