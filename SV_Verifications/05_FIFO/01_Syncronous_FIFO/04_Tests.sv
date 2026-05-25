@@ -6,8 +6,8 @@ class basic_test;
   Environment env;
   
 
-  function new(virtual FIFO_INTERFACE inf);
-    env=new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    env=new(inf,name);
   endfunction
 
   task run_reset();
@@ -38,8 +38,8 @@ endclass
 
 class full_write_read_test extends basic_test;
 
-  function new(virtual FIFO_INTERFACE inf);
-    super.new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -79,8 +79,8 @@ endclass
         
 class pointer_wrap_around_test extends basic_test;
 
-  function new(virtual FIFO_INTERFACE inf);
-    super.new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -104,8 +104,8 @@ endclass
                 
 class overflow_underflow_test extends basic_test;
 
-  function new(virtual FIFO_INTERFACE inf);
-    super.new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -146,8 +146,8 @@ endclass
                         
 class concurrent_boundary_collision_test extends basic_test;
 
-  function new(virtual FIFO_INTERFACE inf);
-    super.new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -172,8 +172,8 @@ endclass
         
 class continues_concurrent_test extends basic_test;
 
-  function new(virtual FIFO_INTERFACE inf);
-    super.new(inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
+    super.new(inf,name);
   endfunction
 
   task run_test();
@@ -193,9 +193,8 @@ class continues_concurrent_test extends basic_test;
 
   endtask
 
+
 endclass
-
-
-
-
-  
+      
+        
+        
