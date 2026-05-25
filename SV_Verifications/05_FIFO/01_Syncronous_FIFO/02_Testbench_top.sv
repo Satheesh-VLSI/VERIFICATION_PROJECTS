@@ -1,3 +1,4 @@
+
 //===========================
 //      TESTBENCH TOP
 //===========================
@@ -35,33 +36,33 @@ module tb_top;
     $display("                                       ||                                                                             ||");
     $display("                                       =================================================================================\n");
 
-    TEST1=new(inf);
+    TEST1=new(inf,"RANDOM");
     TEST1.run_reset();
     TEST1.run_test();
     
     
-    TEST2=new(inf);
+    TEST2=new(inf,"Full_Read_Write");
     TEST2.run_reset();
     TEST2.run_test();
    
     
-    TEST3=new(inf);
+    TEST3=new(inf,"Pointer_Wrap_Around");
     TEST3.run_reset();
     TEST3.run_test();
     
     
-    TEST4=new(inf);
+    TEST4=new(inf,"OVERFLOW_UNDERFLOW");
     TEST4.run_reset();
     TEST4.run_test();
     
     
     
-    TEST5=new(inf);
+    TEST5=new(inf,"Concurrent_Boundary_Collision");
     TEST5.run_reset();
     TEST5.run_test();
     
     
-    TEST6=new(inf);
+    TEST6=new(inf,"Continues_Concurrent");
     TEST6.run_reset();
     TEST6.run_test();
     
@@ -92,6 +93,6 @@ module tb_top;
     $display("    ################################################################");
 
     #20;
-    $finish;
+    $stop;
   end
 endmodule
