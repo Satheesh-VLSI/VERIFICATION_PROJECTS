@@ -2,6 +2,8 @@
 //       SCOREBOARD 
 //===========================
 class Scoreboard #(parameter Width=8, parameter Depth=16);
+  
+  Coverage Cover;
 
   mailbox #(Transaction) mon2scr;
   
@@ -22,8 +24,9 @@ class Scoreboard #(parameter Width=8, parameter Depth=16);
 
   event done;
 
-  function new(mailbox #(Transaction) mon2scr);
+  function new(mailbox #(Transaction) mon2scr,string name);
     this.mon2scr=mon2scr;
+    Cover=new(name);
     exp_full=0;
     exp_empty=1;
   endfunction
@@ -33,6 +36,7 @@ class Scoreboard #(parameter Width=8, parameter Depth=16);
     forever begin
       Transaction trans;
       mon2scr.get(trans);
+      Cover.sample(trans);
     
       
       if(trans.rst) begin 
