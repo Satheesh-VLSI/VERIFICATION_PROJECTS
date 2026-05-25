@@ -13,7 +13,7 @@ class Environment;
 
   virtual FIFO_INTERFACE inf;
   
-  function new(virtual FIFO_INTERFACE inf);
+  function new(virtual FIFO_INTERFACE inf,string name);
 
     this.inf=inf;
     
@@ -23,7 +23,7 @@ class Environment;
     gen=new(gen2drv);
     drv=new(inf,gen2drv);
     mon=new(inf,mon2scr);
-    scr=new(mon2scr);
+    scr=new(mon2scr,name);
 
   endfunction
   
@@ -59,5 +59,3 @@ class Environment;
   endtask
         
 endclass : Environment
-        
-        
