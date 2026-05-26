@@ -30,7 +30,186 @@ The verification includes:
 - Continuous Concurrent Access Testing
 - Scoreboard-Based Data Checking
 - FIFO Flag Verification
+- 
+---
 
+
+# Verification Summary
+
+| Parameter | Status |
+|---|---|
+| DUT | Synchronous FIFO |
+| Reset Type | Synchronous Reset |
+| FIFO Depth | 16 |
+| Data Width | 8-bit |
+| Read/Write Type | Synchronous |
+| FIFO Architecture | Circular Buffer(Without Empty Slot) |
+
+---
+
+## Verified Test Scenarios
+
+| Test Scenario | Status |
+|---|---|
+| Randomized Operations | PASSED |
+| Full Write Test | PASSED |
+| Full Read Test | PASSED |
+| Pointer Wrap Around Test | PASSED |
+| Overflow Test | PASSED |
+| Underflow Test | PASSED |
+| Concurrent Boundary Test | PASSED |
+| Continuous Concurrent Test | PASSED |
+
+---
+
+## Features Verified
+
+| Feature | Status |
+|---|---|
+| FIFO Write Operation | PASSED |
+| FIFO Read Operation | PASSED |
+| Full Flag Generation | PASSED |
+| Empty Flag Generation | PASSED |
+| Concurrent Read/Write Handling | PASSED |
+| Pointer Wrap Around Logic | PASSED |
+| Overflow Protection | PASSED |
+| Underflow Protection | PASSED |
+| Data Integrity | PASSED |
+| Scoreboard Comparison | PASSED |
+
+---
+
+## Monitor Fields Description
+
+| Signal | Description |
+|---|---|
+| w_en | FIFO write enable signal |
+| r_en | FIFO read enable signal |
+| data_in | Input data written into FIFO |
+| data_out | Output data read from FIFO |
+| full | FIFO full status flag |
+| empty | FIFO empty status flag |
+| rst | FIFO synchronous reset signal |
+
+---
+
+# Verification Observations
+
+- FIFO write and read operations verified successfully
+- Full and empty flag behavior validated under all operating conditions
+- Pointer wrap-around logic verified successfully
+- Overflow and underflow protection behavior validated
+- Concurrent read/write operations verified under boundary conditions
+- Continuous simultaneous read/write access handled correctly
+- No mismatches detected between expected and actual outputs
+- Scoreboard verification completed successfully
+- DUT maintained correct FIFO functionality throughout simulation
+
+---
+
+# Final Verification Result
+
+```diff
++ ALL TEST CASES PASSED
++ SYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
++ SCOREBOARD CHECKING PASSED
++ DESIGN STATUS : PASSED
+```
+
+---
+# Functional Coverage Summary
+
+```bash
+# ========================================================================================
+#                                  SYNCHRONOUS FIFO COVERAGE REPORT
+# ========================================================================================
+
+Overall Functional Coverage Summary
+-----------------------------------
+Total Coverage Bins          : 152
+Covered Bins                 : 150
+Uncovered Bins               : 2
+Bin Hit Percentage           : 98.68%
+Overall Functional Coverage  : 99.79%
+
+Coverage Achievement
+--------------------
+[PASS] Write Enable Coverage                 : 100%
+[PASS] Read Enable Coverage                  : 100%
+[PASS] DATA_IN Coverage                      : 100%
+[PASS] DATA_OUT Coverage                     : 96.87%
+[PASS] FIFO Full Condition Coverage          : 100%
+[PASS] FIFO Empty Condition Coverage         : 100%
+[PASS] Overflow Attempt Coverage             : 100%
+[PASS] Underflow Attempt Coverage            : 100%
+[PASS] Reset Coverage                        : 100%
+[PASS] Reset Transition Coverage             : 100%
+[PASS] Write After Reset Coverage            : 100%
+[PASS] Read After Reset Coverage             : 100%
+[PASS] Concurrent Read/Write Coverage        : 100%
+[PASS] Boundary Condition Coverage           : 100%
+[PASS] Full-to-Empty Transition Coverage     : 100%
+[PASS] Empty-to-Full Transition Coverage     : 100%
+
+Coverage Analysis
+-----------------
+- Functional coverage results shown above correspond to merged coverage
+  collected across all FIFO test scenarios and regression runs.
+
+- Write and read enable operations were fully exercised across all
+  operational modes.
+
+- DATA_IN and DATA_OUT coverpoints successfully achieved complete
+  functional coverage across all 64 bins.
+
+- FIFO boundary conditions including FULL and EMPTY states were
+  completely verified.
+
+- Overflow and underflow protection scenarios were fully exercised using
+  dedicated stress and boundary-condition testcases.
+
+- Reset verification scenarios including:
+      * Reset assertion
+      * Reset deassertion
+      * Reset transitions
+      * Write after reset
+      * Read after reset
+  were successfully covered during regression execution.
+
+- Concurrent FIFO operations including simultaneous READ and WRITE
+  transactions were successfully exercised.
+
+- FIFO state transition scenarios including:
+      * EMPTY -> NOT_EMPTY
+      * NOT_EMPTY -> EMPTY
+      * FULL -> NOT_FULL
+      * NOT_FULL -> FULL
+  were completely verified.
+
+Remaining Coverage Gaps
+-----------------------
+- Only 2 bins remain uncovered in the merged coverage database.
+
+- Minor uncovered operation cross scenarios still exist in a few
+  corner-case combinations, but they do not affect overall FIFO
+  functional verification completeness.
+
+Final Observation
+-----------------
+The merged functional coverage report confirms that the Synchronous FIFO
+verification environment achieved near-complete functional verification.
+
+All major FIFO operational scenarios including normal transactions,
+boundary conditions, concurrent accesses, reset handling, overflow,
+underflow, and transition behaviors were successfully exercised across
+regression runs.
+
+The final merged coverage achieved:
+      Functional Coverage = 99.79%
+      Bin Hit Percentage  = 98.68%
+
+This indicates a highly stable and well-verified FIFO design.
+```
 ---
 
 # Console Output
@@ -3850,85 +4029,3 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ---
-
-# Verification Summary
-
-| Parameter | Status |
-|---|---|
-| DUT | Synchronous FIFO |
-| Reset Type | Synchronous Reset |
-| FIFO Depth | 16 |
-| Data Width | 8-bit |
-| Read/Write Type | Synchronous |
-| FIFO Architecture | Circular Buffer(Without Empty Slot) |
-
----
-
-## Verified Test Scenarios
-
-| Test Scenario | Status |
-|---|---|
-| Randomized Operations | PASSED |
-| Full Write Test | PASSED |
-| Full Read Test | PASSED |
-| Pointer Wrap Around Test | PASSED |
-| Overflow Test | PASSED |
-| Underflow Test | PASSED |
-| Concurrent Boundary Test | PASSED |
-| Continuous Concurrent Test | PASSED |
-
----
-
-## Features Verified
-
-| Feature | Status |
-|---|---|
-| FIFO Write Operation | PASSED |
-| FIFO Read Operation | PASSED |
-| Full Flag Generation | PASSED |
-| Empty Flag Generation | PASSED |
-| Concurrent Read/Write Handling | PASSED |
-| Pointer Wrap Around Logic | PASSED |
-| Overflow Protection | PASSED |
-| Underflow Protection | PASSED |
-| Data Integrity | PASSED |
-| Scoreboard Comparison | PASSED |
-
----
-
-## Monitor Fields Description
-
-| Signal | Description |
-|---|---|
-| w_en | FIFO write enable signal |
-| r_en | FIFO read enable signal |
-| data_in | Input data written into FIFO |
-| data_out | Output data read from FIFO |
-| full | FIFO full status flag |
-| empty | FIFO empty status flag |
-| rst | FIFO synchronous reset signal |
-
----
-
-# Verification Observations
-
-- FIFO write and read operations verified successfully
-- Full and empty flag behavior validated under all operating conditions
-- Pointer wrap-around logic verified successfully
-- Overflow and underflow protection behavior validated
-- Concurrent read/write operations verified under boundary conditions
-- Continuous simultaneous read/write access handled correctly
-- No mismatches detected between expected and actual outputs
-- Scoreboard verification completed successfully
-- DUT maintained correct FIFO functionality throughout simulation
-
----
-
-# Final Verification Result
-
-```diff
-+ ALL TEST CASES PASSED
-+ SYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
-+ SCOREBOARD CHECKING PASSED
-+ DESIGN STATUS : PASSED
-```
