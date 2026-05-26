@@ -1,7 +1,5 @@
 # Synchronous FIFO Verification Results
 
-## Simulation Status
-
 ```diff
 + SIMULATION PASSED
 + DUT : SYNCHRONOUS FIFO
@@ -9,11 +7,12 @@
 + Total Tests Executed : 8
 + Total Tests PASSED : 8
 + Total Tests FAILED : 0
++ Functional Coverage Achieved : 99.79%
 ```
 
 ---
 
-# Verification Overview
+## Verification Overview
 
 This project verifies a **Synchronous FIFO** using a SystemVerilog-based verification environment.
 
@@ -30,11 +29,13 @@ The verification includes:
 - Continuous Concurrent Access Testing
 - Scoreboard-Based Data Checking
 - FIFO Flag Verification
-- 
+- Functional Coverage Collection
+- Cross Coverage Verification
+- FIFO State Transition Coverage
+
 ---
 
-
-# Verification Summary
+## Verification Summary
 
 | Parameter | Status |
 |---|---|
@@ -43,7 +44,9 @@ The verification includes:
 | FIFO Depth | 16 |
 | Data Width | 8-bit |
 | Read/Write Type | Synchronous |
-| FIFO Architecture | Circular Buffer(Without Empty Slot) |
+| FIFO Architecture | Circular Buffer (Without Empty Slot) |
+| Functional Coverage | 99.79% |
+| Coverage Bin Hit Percentage | 98.68% |
 
 ---
 
@@ -76,6 +79,9 @@ The verification includes:
 | Underflow Protection | PASSED |
 | Data Integrity | PASSED |
 | Scoreboard Comparison | PASSED |
+| Functional Coverage Collection | PASSED |
+| Cross Coverage Verification | PASSED |
+| Reset Transition Coverage | PASSED |
 
 ---
 
@@ -91,9 +97,8 @@ The verification includes:
 | empty | FIFO empty status flag |
 | rst | FIFO synchronous reset signal |
 
----
 
-# Verification Observations
+## Verification Observations
 
 - FIFO write and read operations verified successfully
 - Full and empty flag behavior validated under all operating conditions
@@ -101,21 +106,24 @@ The verification includes:
 - Overflow and underflow protection behavior validated
 - Concurrent read/write operations verified under boundary conditions
 - Continuous simultaneous read/write access handled correctly
+- Functional coverage successfully collected across all regression runs
+- Cross coverage scenarios verified successfully
+- Reset transition scenarios fully exercised
 - No mismatches detected between expected and actual outputs
 - Scoreboard verification completed successfully
 - DUT maintained correct FIFO functionality throughout simulation
 
 ---
 
-# Final Verification Result
+## Final Verification Result
 
 ```diff
 + ALL TEST CASES PASSED
 + SYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
++ FUNCTIONAL COVERAGE TARGET ACHIEVED
 + SCOREBOARD CHECKING PASSED
 + DESIGN STATUS : PASSED
 ```
-
 ---
 # Functional Coverage Summary
 
