@@ -129,7 +129,7 @@ The verification includes:
 
 ```bash
 # ========================================================================================
-#                                  SYNCHRONOUS FIFO COVERAGE REPORT
+#                       SYNCHRONOUS FIFO COVERAGE REPORT SUMMARY
 # ========================================================================================
 
 Overall Functional Coverage Summary
