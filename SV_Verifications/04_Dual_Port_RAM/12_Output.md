@@ -7,6 +7,7 @@
 + DUT : DUAL PORT RAM
 + Total Errors : 0
 + Functional Coverage : COMPLETED
++ Assertion Verification : PASSED
 + Reset Verification : PASSED
 ```
 
@@ -27,6 +28,7 @@ The verification includes:
 - Mixed Collision Scenarios
 - Reset Testing
 - Functional Coverage Collection
+- Assertion-Based Verification (SVA)
 - Scoreboard Checking
 
 ---
@@ -44,8 +46,8 @@ The verification includes:
 | Port Priority during Collision | Port A -> Port B |
 | Randomized Testing | PASSED |
 | Collision Testing | PASSED |
+| Assertion Verification | PASSED |
 | Reset Testing | PASSED |
-| Reset Test | PASSED |
 | Random Stress Operations | PASSED |
 | Functional Coverage | PASSED |
 | Total Errors | 0 |
@@ -105,6 +107,63 @@ The verification includes:
 | Data Out A/B | Output data read from memory |
 | Mode A/B | Read/Write mode control |
 | Reset | Global reset signal for RAM initialization |
+
+---
+
+## Assertion-Based Verification
+
+> [!SUCCESS]
+> **Assertion Verification Status : PASSED**
+>
+> Total Assertion Failures : **0**
+
+### Verification Results
+
+- ✅ Address X/Z Detection (PORT_A, PORT_B)
+- ✅ Mode X/Z Detection (PORT_A, PORT_B)
+- ✅ Write Data X/Z Detection (PORT_A, PORT_B)
+- ✅ Read Data X/Z Detection (PORT_A, PORT_B)
+- ✅ Reset Output Clearing Verification
+- ✅ Read-After-Write Verification (PORT_A)
+- ✅ Read-After-Write Verification (PORT_B)
+- ✅ Collision Priority Verification
+
+---
+
+### Assertion Coverage Summary
+
+<details>
+<summary><b>Assertion Properties Implemented</b></summary>
+
+| Property | Purpose |
+|-----------|----------|
+| ADDR_KNOWN | Ensures Port A and Port B addresses never contain X/Z values |
+| MODE_KNOWN | Ensures read/write mode signals never contain X/Z values |
+| DATA_IN_A_KNOWN | Verifies valid write data on Port A |
+| DATA_IN_B_KNOWN | Verifies valid write data on Port B |
+| DATA_OUT_A_KNOWN | Verifies valid read data on Port A |
+| DATA_OUT_B_KNOWN | Verifies valid read data on Port B |
+| RESET_CLEARED | Verifies reset clears both RAM outputs |
+| READ_AFTER_WRITE_A | Verifies data integrity for Port A read-after-write operations |
+| READ_AFTER_WRITE_B | Verifies data integrity for Port B read-after-write operations |
+| PORT_B_IGNORED | Verifies collision priority behavior where Port A has precedence over Port B |
+
+</details>
+
+---
+
+### Assertion Observations
+
+> [!NOTE]
+>
+> - No assertion failures were reported during simulation.
+> - Address and mode signals remained free from X/Z states throughout all test scenarios.
+> - Write and read data paths were continuously monitored for unknown values.
+> - Reset behavior successfully cleared both output ports as expected.
+> - Read-after-write functionality was verified independently for both ports.
+> - Collision handling assertions confirmed correct Port A priority behavior.
+> - Assertion-based verification complemented scoreboard checking and functional coverage collection.
+> - Design satisfied all protocol, data integrity, reset, and collision requirements monitored by SVA.
 
 ---
 
