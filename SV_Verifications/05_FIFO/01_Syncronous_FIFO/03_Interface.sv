@@ -1,3 +1,4 @@
+`include "Sync_FIFO_SVA.sv"
 //==============================
 //     INTERFACE 
 //==============================
@@ -7,6 +8,7 @@ interface FIFO_INTERFACE#(parameter Width =8)(input logic clk);
   logic w_en,r_en;
   logic[Width-1:0] data_in,data_out;
   logic full,empty;
+  logic asrt_en;
   
   clocking cb @(posedge clk);
     default input #1step output #0;
@@ -25,6 +27,7 @@ interface FIFO_INTERFACE#(parameter Width =8)(input logic clk);
 
   modport DUT (input data_in,w_en,r_en,rst,output data_out,full,empty);
   modport TB  (clocking cb,clocking cb1);
+    
+    
+    
 endinterface
-    
-    
