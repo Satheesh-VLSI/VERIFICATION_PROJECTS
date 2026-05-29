@@ -1,8 +1,4 @@
-
-//===========================
-//      TESTBENCH TOP
-//===========================
-module tb_top;
+b_top;
 
   logic clk;
 
@@ -21,26 +17,27 @@ module tb_top;
                       .data_in_B(inf.data_in_B),
                       .addr_A(inf.addr_A),
                       .addr_B(inf.addr_B),
-            		      .mode_A(inf.mode_A),
-   					          .mode_B(inf.mode_B),
-   					          .clk(inf.clk),
-    				          .rst(inf.rst),
-    			 	          .data_out_A(inf.data_out_A),
+                      .mode_A(inf.mode_A),
+                      .mode_B(inf.mode_B),
+                      .clk(inf.clk),
+                      .rst(inf.rst),
+                      .data_out_A(inf.data_out_A),
                       .data_out_B(inf.data_out_B)
   );
 
   initial begin
-
+    inf.asrt_en=0;
 
     $display("\n                                       =================================================================================");
     $display("                                       ||                                                                             ||");
-    $display("                                       ||                   DUAL PORT RAM VERIFICATION STARTED                        ||");
+    $display("                                       ||                  DUAL PORT RAM VERIFICATION STARTED                         ||");
     $display("                                       ||                                                                             ||");
     $display("                                       =================================================================================\n");
 
     base=new(inf,"\n========================================================================================\n	RANDOMIZED TEST\n========================================================================================");
     
     base.reset();
+    inf.asrt_en=1;
     base.run_test();
     
     
@@ -67,4 +64,3 @@ module tb_top;
 
 
 endmodule
-        
