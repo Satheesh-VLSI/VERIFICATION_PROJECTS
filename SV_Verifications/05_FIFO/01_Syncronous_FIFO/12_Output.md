@@ -180,13 +180,22 @@ The verification includes:
 ---
 
 ### 🔍 Assertion Observations
-
+```bash
 - No assertion failures were reported during simulation.
-- FIFO protocol requirements were continuously monitored.
-- Reset, overflow, and underflow protections were verified.
-- Pointer stability and flag integrity checks passed.
-- Assertion verification complemented functional coverage and scoreboard checking.
-- All SVA checks passed successfully.
+- Write and read enable signals remained free from X/Z states throughout all test scenarios.
+- Input and output data paths were continuously monitored for unknown values.
+- FULL and EMPTY status flags maintained valid logic states during all FIFO operations.
+- Internal read and write pointers remained valid and free from X/Z conditions.
+- Reset behavior successfully cleared FIFO outputs, flags, and pointers as expected.
+- Reset dominance over both read and write operations was verified successfully.
+- Overflow protection assertions confirmed that no additional writes were accepted when FIFO was FULL.
+- Underflow protection assertions confirmed that no reads were performed when FIFO was EMPTY.
+- Read and write pointer stability checks verified correct pointer behavior during idle cycles.
+- FULL and EMPTY mutual exclusivity verification confirmed that both flags never asserted simultaneously.
+- Assertion-based verification complemented scoreboard checking, directed testing, randomized testing, and functional coverage collection.
+- Design satisfied all FIFO protocol, reset, flag generation, pointer management, overflow, underflow, and data integrity requirements monitored through SystemVerilog Assertions (SVA).
+```
+
 
 
 ---
