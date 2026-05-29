@@ -32,6 +32,10 @@ The verification includes:
 - Functional Coverage Collection
 - Cross Coverage Verification
 - FIFO State Transition Coverage
+- SystemVerilog Assertion (SVA) Verification
+- Data Integrity Assertion Verification
+- Reset Behavior Assertion Verification
+- Overflow/Underflow Assertion Verification
 
 ---
 
@@ -47,6 +51,9 @@ The verification includes:
 | FIFO Architecture | Circular Buffer (Without Empty Slot) |
 | Functional Coverage | 99.79% |
 | Coverage Bin Hit Percentage | 98.68% |
+| Data Integrity Assertions | PASSED |
+| Assertion-Based Verification | PASSED |
+| Assertion Failures | 0 |
 
 ---
 
@@ -82,6 +89,9 @@ The verification includes:
 | Functional Coverage Collection | PASSED |
 | Cross Coverage Verification | PASSED |
 | Reset Transition Coverage | PASSED |
+| Reset Dominance Verification | PASSED |
+| Pointer Stability Verification | PASSED |
+| Signal Integrity (X/Z Detection) | PASSED |
 
 ---
 
@@ -112,6 +122,13 @@ The verification includes:
 - No mismatches detected between expected and actual outputs
 - Scoreboard verification completed successfully
 - DUT maintained correct FIFO functionality throughout simulation
+- SystemVerilog Assertions (SVA) successfully monitored FIFO protocol behavior
+- No assertion failures were reported throughout simulation
+- Signal integrity checks confirmed absence of X/Z values on critical control and data signals
+- Reset dominance over read and write operations was verified through assertions
+- Overflow and underflow protection mechanisms were continuously validated
+- Internal pointer stability checks passed successfully
+- FULL and EMPTY mutual exclusion property was verified successfully
 
 ---
 
@@ -123,6 +140,8 @@ The verification includes:
 + FUNCTIONAL COVERAGE TARGET ACHIEVED
 + SCOREBOARD CHECKING PASSED
 + DESIGN STATUS : PASSED
++ ASSERTION VERIFICATION PASSED
++ ASSERTION FAILURES : 0
 ```
 ---
 
