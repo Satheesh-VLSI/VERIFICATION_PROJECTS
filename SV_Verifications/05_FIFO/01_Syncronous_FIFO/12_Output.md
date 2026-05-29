@@ -169,8 +169,8 @@ The verification includes:
 - **RESET_CLEARED** → Reset clearing verification
 - **RESET_DOMINATE_WRITE** → Reset priority over write operation
 - **RESET_DOMINATE_READ** → Reset priority over read operation
-- **OVERFLOW_PROTECTION** → Overflow prevention verification
-- **UNDERFLOW_PROTECTION** → Underflow prevention verification
+- **OVERFLOW_PROTECTION** → Write Protection after Full to ensure data integrity
+- **UNDERFLOW_PROTECTION** → Read Protection after Empty
 - **READ_PTR_STABILITY** → Read pointer stability verification
 - **WRITE_PTR_STABILITY** → Write pointer stability verification
 - **FULL_EMPTY_NO_COLLISION** → FULL and EMPTY mutual exclusion
