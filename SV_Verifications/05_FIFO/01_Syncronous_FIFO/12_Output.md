@@ -8,6 +8,7 @@
 + Total Tests PASSED : 8
 + Total Tests FAILED : 0
 + Functional Coverage Achieved : 99.79%
++ SystemVerilog Assertion: 0 Errors
 ```
 
 ---
