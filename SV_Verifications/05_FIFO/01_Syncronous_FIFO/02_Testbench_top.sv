@@ -1,4 +1,4 @@
-
+      
 //===========================
 //      TESTBENCH TOP
 //===========================
@@ -27,8 +27,23 @@ module tb_top;
                          .data_out(inf.data_out),
                          .w_en(inf.w_en),
                          .r_en(inf.r_en));
+  
+  bind Sync_FIFO Sync_FIFO_SVA #(.Width(8),.Depth(16)) sva_instance (
+    .clk(clk),
+    .rst(rst),
+    .w_en(w_en),
+    .r_en(r_en),
+    .data_in(data_in),
+    .data_out(data_out),
+    .full(full),
+    .empty(empty),
+    .internal_wptr(write_ptr),
+    .internal_rptr(read_ptr),
+    .asrt_en(inf.asrt_en)
+);
 
   initial begin
+    inf.asrt_en=0;
     
     $display("\n                                       =================================================================================");
     $display("                                       ||                                                                             ||");
@@ -36,33 +51,35 @@ module tb_top;
     $display("                                       ||                                                                             ||");
     $display("                                       =================================================================================\n");
 
-    TEST1=new(inf,"RANDOM");
+    TEST1=new(inf,"\n========================================================================================\n	RANDOM\n========================================================================================");
     TEST1.run_reset();
+    
+    inf.asrt_en=1;
     TEST1.run_test();
     
     
-    TEST2=new(inf,"Full_Read_Write");
+    TEST2=new(inf,"\n========================================================================================\n	Full_Read_Write\n========================================================================================");
     TEST2.run_reset();
     TEST2.run_test();
    
     
-    TEST3=new(inf,"Pointer_Wrap_Around");
+    TEST3=new(inf,"\n========================================================================================\n	Pointer_Wrap_Around\n========================================================================================");
     TEST3.run_reset();
     TEST3.run_test();
     
     
-    TEST4=new(inf,"OVERFLOW_UNDERFLOW");
+    TEST4=new(inf,"\n========================================================================================\n	OVERFLOW_UNDERFLOW\n========================================================================================");
     TEST4.run_reset();
     TEST4.run_test();
     
     
     
-    TEST5=new(inf,"Concurrent_Boundary_Collision");
+    TEST5=new(inf,"\n========================================================================================\n	Concurrent_Boundary_Collision\n========================================================================================");
     TEST5.run_reset();
     TEST5.run_test();
     
     
-    TEST6=new(inf,"Continues_Concurrent");
+    TEST6=new(inf,"\n========================================================================================\n	Continues_Concurrent\n========================================================================================");
     TEST6.run_reset();
     TEST6.run_test();
     
