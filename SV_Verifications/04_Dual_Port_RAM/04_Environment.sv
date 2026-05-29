@@ -31,6 +31,12 @@ class Environment;
   task reset_system();
     @(inf.cb);
     inf.cb.rst <= 1;
+    inf.cb.mode_A <= 0;
+    inf.cb.mode_B <= 0;
+    inf.cb.addr_A <= 0;
+    inf.cb.addr_B <= 0;
+    inf.cb.data_in_A <= 0;
+    inf.cb.data_in_B <= 0;
     repeat(2) @(inf.cb);
     inf.cb.rst <= 0;
   endtask
@@ -52,4 +58,3 @@ class Environment;
   endtask
         
 endclass : Environment
-
