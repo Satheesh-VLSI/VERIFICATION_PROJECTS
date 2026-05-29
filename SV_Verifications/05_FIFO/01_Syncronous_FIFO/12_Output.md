@@ -124,79 +124,70 @@ The verification includes:
 + SCOREBOARD CHECKING PASSED
 + DESIGN STATUS : PASSED
 ```
-------
-
-# Assertion Verification Report
-
-```diff
-+ ASSERTION VERIFICATION PASSED
-+ Total Assertions Checked : 14
-+ Assertion Failures       : 0
-+ Protocol Violations      : 0
-+ Data Integrity Errors    : 0
-+ FIFO Control Errors      : 0
-```
+---
 
 ---
 
-### Assertion Checks
+## 🛡️ Assertion-Based Verification
 
-```text
-[PASS] Enable Signal X/Z Detection (w_en, r_en)
-[PASS] Data Input X/Z Detection
-[PASS] Data Output X/Z Detection
-[PASS] Full Flag X/Z Detection
-[PASS] Empty Flag X/Z Detection
-[PASS] Internal Pointer X/Z Detection
-[PASS] Reset Output Clearing Verification
-[PASS] Reset Dominance over Write Operation
-[PASS] Reset Dominance over Read Operation
-[PASS] Overflow Protection Verification
-[PASS] Underflow Protection Verification
-[PASS] Read Pointer Stability Verification
-[PASS] Write Pointer Stability Verification
-[PASS] Full/Empty Flag Collision Detection
-```
+> **Status:** ✅ PASSED  
+> **Assertions Executed:** 14  
+> **Failures:** 0
 
 ---
 
-### Assertion Property Coverage
+### ✅ Assertion Checks
 
-```text
-ENABLE_KNOWN            -> Enable signals never contain X/Z
-DATA_IN_KNOWN           -> Valid write data verification
-DATA_OUT_KNOWN          -> Valid read data verification
-FULL_FLAG_KNOWN         -> FULL flag validity verification
-EMPTY_FLAG_KNOWN        -> EMPTY flag validity verification
-POINTER_KNOWN           -> Internal pointer validity verification
-RESET_CLEARED           -> Reset clearing verification
-RESET_DOMINATE_WRITE    -> Reset priority over write operation
-RESET_DOMINATE_READ     -> Reset priority over read operation
-OVERFLOW_PROTECTION     -> Overflow prevention verification
-UNDERFLOW_PROTECTION    -> Underflow prevention verification
-READ_PTR_STABILITY      -> Read pointer stability verification
-WRITE_PTR_STABILITY     -> Write pointer stability verification
-FULL_EMPTY_NO_COLLISION -> FULL and EMPTY mutual exclusion
-```
+- Enable Signal X/Z Detection (w_en, r_en)
+- Data Input X/Z Detection
+- Data Output X/Z Detection
+- Full Flag X/Z Detection
+- Empty Flag X/Z Detection
+- Internal Pointer X/Z Detection
+- Reset Output Clearing Verification
+- Reset Dominance over Write Operation
+- Reset Dominance over Read Operation
+- Overflow Protection Verification
+- Underflow Protection Verification
+- Read Pointer Stability Verification
+- Write Pointer Stability Verification
+- Full/Empty Flag Collision Detection
 
 ---
 
-### Assertion Observations
+### 📋 Assertion Property Summary
 
-```bash
-- No assertion failures reported during simulation.
-- Enable signals remained free from X/Z states.
-- Data paths remained free from unknown values.
-- FULL and EMPTY flags maintained valid states.
-- Internal pointers remained stable and valid.
-- Reset functionality verified successfully.
-- Overflow protection verified successfully.
-- Underflow protection verified successfully.
-- Pointer stability checks passed.
-- FULL and EMPTY collision never occurred.
-- Assertion-based verification complemented scoreboard checking.
-- All monitored FIFO protocol requirements were satisfied.
-```
+<details>
+<summary>Click to Expand</summary>
+
+- **ENABLE_KNOWN** → Enable signals never contain X/Z
+- **DATA_IN_KNOWN** → Valid write data verification
+- **DATA_OUT_KNOWN** → Valid read data verification
+- **FULL_FLAG_KNOWN** → FULL flag validity verification
+- **EMPTY_FLAG_KNOWN** → EMPTY flag validity verification
+- **POINTER_KNOWN** → Internal pointer validity verification
+- **RESET_CLEARED** → Reset clearing verification
+- **RESET_DOMINATE_WRITE** → Reset priority over write operation
+- **RESET_DOMINATE_READ** → Reset priority over read operation
+- **OVERFLOW_PROTECTION** → Overflow prevention verification
+- **UNDERFLOW_PROTECTION** → Underflow prevention verification
+- **READ_PTR_STABILITY** → Read pointer stability verification
+- **WRITE_PTR_STABILITY** → Write pointer stability verification
+- **FULL_EMPTY_NO_COLLISION** → FULL and EMPTY mutual exclusion
+
+</details>
+
+---
+
+### 🔍 Assertion Observations
+
+- No assertion failures were reported during simulation.
+- FIFO protocol requirements were continuously monitored.
+- Reset, overflow, and underflow protections were verified.
+- Pointer stability and flag integrity checks passed.
+- Assertion verification complemented functional coverage and scoreboard checking.
+- All SVA checks passed successfully.
+
 
 ---
 # Functional Coverage Summary
