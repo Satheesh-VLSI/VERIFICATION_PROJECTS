@@ -96,57 +96,6 @@ The verification includes:
 
 ---
 
-## Monitor Fields Description
-
-| Signal | Description |
-|---|---|
-| w_en | FIFO write enable signal |
-| r_en | FIFO read enable signal |
-| data_in | Input data written into FIFO |
-| data_out | Output data read from FIFO |
-| full | FIFO full status flag |
-| empty | FIFO empty status flag |
-| rst | FIFO synchronous reset signal |
-
-
-## Verification Observations
-
-- FIFO write and read operations verified successfully
-- Full and empty flag behavior validated under all operating conditions
-- Pointer wrap-around logic verified successfully
-- Overflow and underflow protection behavior validated
-- Concurrent read/write operations verified under boundary conditions
-- Continuous simultaneous read/write access handled correctly
-- Functional coverage successfully collected across all regression runs
-- Cross coverage scenarios verified successfully
-- Reset transition scenarios fully exercised
-- No mismatches detected between expected and actual outputs
-- Scoreboard verification completed successfully
-- DUT maintained correct FIFO functionality throughout simulation
-- SystemVerilog Assertions (SVA) successfully monitored FIFO protocol behavior
-- No assertion failures were reported throughout simulation
-- Signal integrity checks confirmed absence of X/Z values on critical control and data signals
-- Reset dominance over read and write operations was verified through assertions
-- Overflow and underflow protection mechanisms were continuously validated
-- Internal pointer stability checks passed successfully
-- FULL and EMPTY mutual exclusion property was verified successfully
-
----
-
-## Final Verification Result
-
-```diff
-+ ALL TEST CASES PASSED
-+ SYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
-+ FUNCTIONAL COVERAGE TARGET ACHIEVED
-+ SCOREBOARD CHECKING PASSED
-+ DESIGN STATUS : PASSED
-+ ASSERTION VERIFICATION PASSED
-+ ASSERTION FAILURES : 0
-```
----
-
----
 
 ## 🛡️ Assertion-Based Verification
 
@@ -215,9 +164,56 @@ The verification includes:
 - Assertion-based verification complemented scoreboard checking, directed testing, randomized testing, and functional coverage collection.
 - Design satisfied all FIFO protocol, reset, flag generation, pointer management, overflow, underflow, and data integrity requirements monitored through SystemVerilog Assertions (SVA).
 ```
+---
+
+## Monitor Fields Description
+
+| Signal | Description |
+|---|---|
+| w_en | FIFO write enable signal |
+| r_en | FIFO read enable signal |
+| data_in | Input data written into FIFO |
+| data_out | Output data read from FIFO |
+| full | FIFO full status flag |
+| empty | FIFO empty status flag |
+| rst | FIFO synchronous reset signal |
 
 
+## Verification Observations
 
+- FIFO write and read operations verified successfully
+- Full and empty flag behavior validated under all operating conditions
+- Pointer wrap-around logic verified successfully
+- Overflow and underflow protection behavior validated
+- Concurrent read/write operations verified under boundary conditions
+- Continuous simultaneous read/write access handled correctly
+- Functional coverage successfully collected across all regression runs
+- Cross coverage scenarios verified successfully
+- Reset transition scenarios fully exercised
+- No mismatches detected between expected and actual outputs
+- Scoreboard verification completed successfully
+- DUT maintained correct FIFO functionality throughout simulation
+- SystemVerilog Assertions (SVA) successfully monitored FIFO protocol behavior
+- No assertion failures were reported throughout simulation
+- Signal integrity checks confirmed absence of X/Z values on critical control and data signals
+- Reset dominance over read and write operations was verified through assertions
+- Overflow and underflow protection mechanisms were continuously validated
+- Internal pointer stability checks passed successfully
+- FULL and EMPTY mutual exclusion property was verified successfully
+
+---
+
+## Final Verification Result
+
+```diff
++ ALL TEST CASES PASSED
++ SYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
++ FUNCTIONAL COVERAGE TARGET ACHIEVED
++ SCOREBOARD CHECKING PASSED
++ DESIGN STATUS : PASSED
++ ASSERTION VERIFICATION PASSED
++ ASSERTION FAILURES : 0
+```
 ---
 # Functional Coverage Summary
 
