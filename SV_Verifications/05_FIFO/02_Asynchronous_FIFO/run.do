@@ -5,3 +5,6 @@ coverage save cov.ucdb
 coverage report -cvg -details
 # Exit the simulator immediately
 exit
+
+#compiler option: -timescale 1ns/1ns -coverage
+#run option: -coverage -voptargs="+acc" 
