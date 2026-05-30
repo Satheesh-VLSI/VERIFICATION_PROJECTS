@@ -317,7 +317,7 @@ This indicates a highly stable and well-verified FIFO design.
 # Console Output
 
 ```systemverilog
-=================================================================================
+#                                        =================================================================================
 #                                        ||                                                                             ||
 #                                        ||                  SYNCHRONOUS FIFO VERIFICATION STARTED                      ||
 #                                        ||                                                                             ||
