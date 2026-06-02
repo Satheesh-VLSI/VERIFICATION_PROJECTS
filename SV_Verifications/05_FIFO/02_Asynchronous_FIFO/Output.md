@@ -7,8 +7,8 @@
 + Total Tests Executed : 9
 + Total Tests PASSED : 9
 + Total Tests FAILED : 0
-+ Functional Coverage Achieved : 99.79%
-+ Assertion Verification : PASSED
++ Functional Coverage Achieved : 100%
++ Assertions Verification PASSED : 15 / 15
 ```
 
 ---
@@ -42,14 +42,14 @@ The verification includes:
 
  DUT/Design                  : Asynchronous FIFO 
  Reset Type                  : Global Asynchronous Resets
- FIFO Depth                  : 16 
+ FIFO Depth                  : 32 
  Data Width                  : 8-bit 
  Write Clock Domain          : Independent 
  Read Clock Domain           : Independent 
  FIFO Architecture           : Circular Buffer (Without Empty Slot)
 
- Functional Coverage         : 99.79% 
- Coverage Bin Hit Percentage : 98.68%
+ Functional Coverage         : 100% 
+ Coverage Bin Hit Percentage : 100%
 
  Assertion Verification      : PASSED 
  Total Errors                : 0 
@@ -233,96 +233,107 @@ The verification includes:
 ---
 
 ## 📊 Functional Coverage Summary
+```bash---
+# Functional Coverage Summary
+
 ```bash
 # ========================================================================================
-#                    ASYNCHRONOUS FIFO COVERAGE REPORT SUMMARY
+#                     ASYNCHRONOUS FIFO COVERAGE REPORT SUMMARY
 # ========================================================================================
 
 Overall Functional Coverage Summary
 -----------------------------------
-Total Coverage Bins          : 152
-Covered Bins                 : 150
-Uncovered Bins               : 2
-Bin Hit Percentage           : 98.68%
-Overall Functional Coverage  : 99.79%
+Total Coverage Bins          : 162
+Covered Bins                 : 162
+Uncovered Bins               : 0
+Bin Hit Percentage           : 100.00%
+Overall Functional Coverage  : 100.00%
 
 Coverage Achievement
 --------------------
-[PASS] Write Enable Coverage                 : 100%
-[PASS] Read Enable Coverage                  : 100%
-[PASS] DATA_IN Coverage                      : 100%
-[PASS] DATA_OUT Coverage                     : 96.87%
-[PASS] FIFO Full Condition Coverage          : 100%
-[PASS] FIFO Empty Condition Coverage         : 100%
-[PASS] Overflow Attempt Coverage             : 100%
-[PASS] Underflow Attempt Coverage            : 100%
-[PASS] Reset Coverage                        : 100%
-[PASS] Reset Transition Coverage             : 100%
-[PASS] Write After Reset Coverage            : 100%
-[PASS] Read After Reset Coverage             : 100%
-[PASS] Reset During Write Coverage           : 100%
-[PASS] Reset During Read Coverage            : 100%
-[PASS] Write Burst Coverage                  : 100%
-[PASS] Read Burst Coverage                   : 100%
-[PASS] Full-to-Empty Transition Coverage     : 100%
-[PASS] Empty-to-Full Transition Coverage     : 100%
+[PASS] Write Enable Coverage                : 100%
+[PASS] Read Enable Coverage                 : 100%
+[PASS] DATA_IN Coverage                     : 100%
+[PASS] DATA_OUT Coverage                    : 100%
+[PASS] FIFO Full Condition Coverage         : 100%
+[PASS] FIFO Empty Condition Coverage        : 100%
+[PASS] Overflow Attempt Coverage            : 100%
+[PASS] Underflow Attempt Coverage           : 100%
+[PASS] Reset Coverage                       : 100%
+[PASS] Reset Transition Coverage            : 100%
+[PASS] Write After Reset Coverage           : 100%
+[PASS] Read After Reset Coverage            : 100%
+[PASS] Reset During Write Coverage          : 100%
+[PASS] Reset During Read Coverage           : 100%
+[PASS] Full Transition Coverage             : 100%
+[PASS] Empty Transition Coverage            : 100%
+[PASS] Write Burst Coverage                 : 100%
+[PASS] Read Burst Coverage                  : 100%
 
 Coverage Analysis
 -----------------
-- Functional coverage results shown above correspond to merged coverage
-  collected across all FIFO test scenarios and regression runs.
+- Functional coverage results correspond to merged coverage collected
+  across all asynchronous FIFO regression executions.
 
-- Write and read enable operations were fully exercised across all
-  functional scenarios.
+- Complete DATA_IN coverage was achieved with all 64 auto-generated
+  bins successfully exercised.
 
-- FIFO boundary conditions including FULL and EMPTY states were
-  completely verified.
+- Complete DATA_OUT coverage was achieved with all 64 auto-generated
+  bins successfully exercised.
 
-- Overflow and underflow protection scenarios were successfully exercised.
+- FIFO FULL and EMPTY conditions were verified across all operating
+  scenarios.
 
-- Reset verification scenarios including:
-      * Reset assertion
-      * Reset deassertion
-      * Reset transitions
-      * Write after reset
-      * Read after reset
-      * Reset during write
-      * Reset during read
-  were successfully covered.
+- Overflow protection behavior was exercised through write attempts
+  while FIFO was FULL.
 
-- FIFO burst transaction scenarios including:
-      * 4 Transaction Burst
-      * 8 Transaction Burst
-      * 16 Transaction Burst
-      * 32 Transaction Burst
-  were completely exercised.
+- Underflow protection behavior was exercised through read attempts
+  while FIFO was EMPTY.
 
-- Pointer wrap-around behavior and state-transition scenarios were
-  successfully verified.
+- Reset verification scenarios successfully covered:
+      * Reset Assertion
+      * Reset Deassertion
+      * Reset Transitions
+      * Reset During Write
+      * Reset During Read
+      * Write After Reset
+      * Read After Reset
 
-Remaining Coverage Gaps
------------------------
-- Only 2 bins remain uncovered in the merged coverage database.
+- FIFO state transition scenarios successfully covered:
+      * FULL -> NOT_FULL
+      * NOT_FULL -> FULL
+      * EMPTY -> NOT_EMPTY
+      * NOT_EMPTY -> EMPTY
 
-- Remaining uncovered bins correspond to rare corner-case combinations
-  and do not impact overall FIFO functional correctness.
+- Burst operation coverage successfully exercised:
+      * 4 Consecutive Transactions
+      * 8 Consecutive Transactions
+      * 16 Consecutive Transactions
+      * 32 Consecutive Transactions
+
+- Independent write and read clock domains were fully exercised
+  throughout regression execution.
 
 Final Observation
 -----------------
 The merged functional coverage report confirms that the Asynchronous FIFO
-verification environment achieved near-complete functional verification.
+verification environment achieved complete functional verification.
 
-All major FIFO operational scenarios including normal transactions,
-boundary conditions, concurrent accesses, reset handling, overflow,
-underflow, burst operations, and transition behaviors were successfully
-exercised across regression runs.
+All write-side and read-side operational scenarios including normal
+transactions, boundary conditions, overflow protection, underflow
+protection, reset handling, burst transactions, and FIFO state
+transitions were successfully exercised.
 
 The final merged coverage achieved:
 
-      Functional Coverage = 99.79%
-      Bin Hit Percentage  = 98.68%
+      Functional Coverage = 100.00%
+      Bin Hit Percentage  = 100.00%
+      Covered Bins        = 162 / 162
 
-This indicates a highly stable and thoroughly verified FIFO design.
+This indicates a fully verified and coverage-closed Asynchronous FIFO
+design.
+```
+---
 ```
 
 ---
