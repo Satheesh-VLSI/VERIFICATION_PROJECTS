@@ -60,19 +60,19 @@ The verification includes:
 
 ## 🔍 Verification Scope
 
-> ✅ Randomized FIFO Operations  
-> ✅ Full Write Verification  
-> ✅ Full Read Verification  
-> ✅ Pointer Wrap-Around Verification  
-> ✅ Overflow Protection Verification  
-> ✅ Underflow Protection Verification  
-> ✅ Concurrent Read/Write Operations  
-> ✅ Boundary Condition Testing  
-> ✅ Continuous Concurrent Access Testing  
-> ✅ Reset Verification  
-> ✅ Functional Coverage Collection  
-> ✅ Assertion-Based Verification  
-> ✅ Scoreboard-Based Data Integrity Checking  
+ ✅ Randomized FIFO Operations  
+ ✅ Full Write Verification  
+ ✅ Full Read Verification  
+ ✅ Pointer Wrap-Around Verification  
+ ✅ Overflow Protection Verification  
+ ✅ Underflow Protection Verification  
+ ✅ Concurrent Read/Write Operations  
+ ✅ Boundary Condition Testing  
+ ✅ Continuous Concurrent Access Testing  
+ ✅ Reset Verification  
+ ✅ Functional Coverage Collection  
+ ✅ Assertion-Based Verification  
+ ✅ Scoreboard-Based Data Integrity Checking  
 
 ---
 
@@ -108,50 +108,57 @@ The verification includes:
 ✓ Pointer Wrap-Around Logic
 ✓ Overflow Protection
 ✓ Underflow Protection
+✓ Boundary Condition Testing  
 ✓ Reset Handling
-✓ Data Integrity Verification
-✓ Scoreboard Comparison
 ✓ Functional Coverage Collection
 ✓ Assertion-Based Verification
+✓ Scoreboard-Based Data Integrity Checking
 ```
 
 ---
 
-## 🛡️ Assertion Verification Summary
+## Monitor Fields Description
 
-```diff
-+ WRITE_ENABLE_KNOWN
-+ READ_ENABLE_KNOWN
+| Signal | Description |
+|---|---|
+| w_clk | Write clock |
+| r_clk | Read clock |
+| w_en | FIFO write enable signal |
+| r_en | FIFO read enable signal |
+| data_in | Input data written into FIFO |
+| data_out | Output data read from FIFO |
+| full | FIFO full status flag |
+| empty | FIFO empty status flag |
+| w_rst | Write-domain reset |
+| r_rst | Read-domain reset |
 
-+ DATA_IN_KNOWN
-+ DATA_OUT_KNOWN
+---
 
-+ FULL_FLAG_KNOWN
-+ EMPTY_FLAG_KNOWN
+## Assertion Coverage Summary
 
-+ WRITE_POINTER_KNOWN
-+ READ_POINTER_KNOWN
+| Assertion Property | Purpose |
+|---|---|
+| WRITE_ENABLE_KNOWN | Ensures write enable signal never contains X/Z |
+| READ_ENABLE_KNOWN | Ensures read enable signal never contains X/Z |
+| DATA_IN_KNOWN | Verifies valid input data during write operations |
+| DATA_OUT_KNOWN | Verifies valid output data during read operations |
+| FULL_FLAG_KNOWN | Verifies FULL flag never enters unknown state |
+| EMPTY_FLAG_KNOWN | Verifies EMPTY flag never enters unknown state |
+| WRITE_POINTER_KNOWN | Verifies write pointer never contains X/Z |
+| READ_POINTER_KNOWN | Verifies read pointer never contains X/Z |
+| RESET_CLEARED_WRITE_DOMAIN | Verifies reset clears write-domain state |
+| RESET_CLEARED_READ_DOMAIN | Verifies reset clears read-domain state |
+| RESET_DOMINANCE_WRITE | Verifies reset has priority over write operations |
+| RESET_DOMINANCE_READ | Verifies reset has priority over read operations |
+| OVERFLOW_PROTECTION | Verifies FIFO ignores writes while FULL |
+| UNDERFLOW_PROTECTION | Verifies FIFO ignores reads while EMPTY |
+| READ_PTR_STABILITY | Verifies read pointer stability when read disabled |
+| WRITE_PTR_STABILITY | Verifies write pointer stability when write disabled |
+| DATA_OUT_STABILITY | Verifies output stability without valid reads |
+| WRITE_PTR_INCREMENT | Verifies write pointer increments correctly |
+| READ_PTR_INCREMENT | Verifies read pointer increments correctly |
 
-+ RESET_CLEARED_WRITE_DOMAIN
-+ RESET_CLEARED_READ_DOMAIN
 
-+ RESET_DOMINANCE_WRITE
-+ RESET_DOMINANCE_READ
-
-+ OVERFLOW_PROTECTION
-+ UNDERFLOW_PROTECTION
-
-+ READ_PTR_STABILITY
-+ WRITE_PTR_STABILITY
-
-+ DATA_OUT_STABILITY
-
-+ WRITE_PTR_INCREMENT
-+ READ_PTR_INCREMENT
-
-+ Assertion Failures : 0
-+ Assertion Result   : PASSED
-```
 
 ---
 
