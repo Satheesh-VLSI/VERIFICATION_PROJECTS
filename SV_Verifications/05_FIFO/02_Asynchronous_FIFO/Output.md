@@ -3,31 +3,57 @@
 ```diff
 + SIMULATION PASSED
 + DUT : ASYNCHRONOUS FIFO
++ Total Errors : 0
 + Total Tests Executed : 9
-+ Total Tests PASSED   : 9
-+ Total Tests FAILED   : 0
-+ Functional Coverage  : 99.79%
-+ Assertion Status     : PASSED
++ Total Tests PASSED : 9
++ Total Tests FAILED : 0
++ Functional Coverage Achieved : 99.79%
++ Assertion Verification : PASSED
 ```
 
 ---
+## Verification Overview
 
-## 🎯 Verification Dashboard
+This project verifies an **Asynchronous FIFO** using a SystemVerilog-based verification environment.
+
+The verification includes:
+
+- Randomized FIFO Operations
+- Full Write Testing
+- Full Read Testing
+- Pointer Wrap-Around Verification
+- Overflow Condition Testing
+- Underflow Condition Testing
+- Concurrent Read/Write Operations
+- Boundary Condition Verification
+- Continuous Concurrent Access Testing
+- Reset Verification
+- Scoreboard-Based Data Checking
+- FIFO Flag Verification
+- Functional Coverage Collection
+- Assertion-Based Verification
+- FIFO State Transition Verification
+
+---
+
+## 🎯 Verification Summary
 
 ```yaml
-Design               : Asynchronous FIFO
-FIFO Depth           : 16
-Data Width           : 8-bit
-Architecture         : Circular Buffer
-Clocking             : Independent Read/Write Domains
-Reset Scheme         : Independent Asynchronous Resets
 
-Functional Coverage  : 99.79%
-Bin Hit Percentage   : 98.68%
+ DUT/Design                  : Asynchronous FIFO 
+ Reset Type                  : Global Asynchronous Resets
+ FIFO Depth                  : 16 
+ Data Width                  : 8-bit 
+ Write Clock Domain          : Independent 
+ Read Clock Domain           : Independent 
+ FIFO Architecture           : Circular Buffer (Without Empty Slot)
 
-Scoreboard Status    : PASSED
-Assertion Status     : PASSED
-Final Result         : PASSED
+ Functional Coverage         : 99.79% 
+ Coverage Bin Hit Percentage : 98.68%
+
+ Assertion Verification      : PASSED 
+ Total Errors                : 0 
+ Final Result                : PASSED
 ```
 
 ---
