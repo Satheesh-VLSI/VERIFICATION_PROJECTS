@@ -346,9 +346,7 @@ This indicates a fully verified and coverage-closed Asynchronous FIFO
 design.
 ```
 ---
-```
 
----
 
 
 ## 📜 Console Output
