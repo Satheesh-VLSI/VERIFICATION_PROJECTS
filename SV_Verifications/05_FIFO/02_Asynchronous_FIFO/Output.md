@@ -202,17 +202,29 @@ The verification includes:
 ## 📌 Key Verification Observations
 
 ► Independent write and read clock domains verified successfully.
+
 ► FIFO write and read operations verified successfully across independent clock domains.
+
 ► Full and empty flag behavior validated under all operating conditions.
+
 ► Pointer wrap-around logic verified successfully.
+
 ► Overflow and underflow protection behavior validated.
+
 ► Concurrent read/write operations verified under boundary conditions.
+
 ► Continuous simultaneous access behavior validated successfully.
+
 ► Independent reset behavior verified for both write and read domains.
+
 ► Functional coverage successfully collected across all regression runs.
+
 ► Assertion-based verification completed without failures.
+
 ► No mismatches detected between expected and actual outputs.
+
 ► Scoreboard verification completed successfully.
+
 ► DUT maintained correct FIFO functionality throughout simulation.
 
 
