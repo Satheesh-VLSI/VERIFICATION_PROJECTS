@@ -164,28 +164,28 @@ The verification includes:
 <details>
 <summary>Click to Expand</summary>
 
-| *****Assertion Check***** | *****Status***** |
+| *Assertion Check* | *Status*|
 |---|---|
-| ***Write Enable X/Z Detection*** | PASSED |
-| ***Read Enable X/Z Detection*** | PASSED |
-| ***Data-In X/Z Detection*** | PASSED |
-| ***Data-Out X/Z Detection*** | PASSED |
-| ***Full Flag X/Z Detection*** | PASSED |
-| ***Empty Flag X/Z Detection*** | PASSED |
-| ***Write Pointer X/Z Detection*** | PASSED |
-| ***Read Pointer X/Z Detection*** | PASSED |
-| ***Reset Output Clearing Verification*** | PASSED |
-| ***Reset Dominance Over Write*** | PASSED |
-| ***Reset Dominance Over Read*** | PASSED |
-| ***Overflow Protection Verification*** | PASSED |
-| ***Underflow Protection Verification*** | PASSED |
-| ***Read Pointer Stability Verification*** | PASSED |
-| ***Write Pointer Stability Verification*** | PASSED |
-| ***Data-Out Stability Verification*** | PASSED |
-| ***Write Pointer Increment Verification*** | PASSED |
-| ***Read Pointer Increment Verification*** | PASSED |
-| ***Assertion Error Count*** | 0 |
-| ***Assertion Result*** | PASSED |
+| **Write Enable X/Z Detection** | PASSED |
+| **Read Enable X/Z Detection** | PASSED |
+| **Data-In X/Z Detection** | PASSED |
+| **Data-Out X/Z Detection** | PASSED |
+| **Full Flag X/Z Detection** | PASSED |
+| **Empty Flag X/Z Detection** | PASSED |
+| **Write Pointer X/Z Detection** | PASSED |
+| **Read Pointer X/Z Detection** | PASSED |
+| **Reset Output Clearing Verification** | PASSED |
+| **Reset Dominance Over Write** | PASSED |
+| **Reset Dominance Over Read** | PASSED |
+| **Overflow Protection Verification** | PASSED |
+| **Underflow Protection Verification** | PASSED |
+| **Read Pointer Stability Verification** | PASSED |
+| **Write Pointer Stability Verification** | PASSED |
+| **Data-Out Stability Verification** | PASSED |
+| **Write Pointer Increment Verification** | PASSED |
+| **Read Pointer Increment Verification** | PASSED |
+| **Assertion Error Count** | 0 |
+| **Assertion Result** | PASSED |
 
 ---
 
