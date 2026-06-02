@@ -158,7 +158,53 @@ The verification includes:
 | WRITE_PTR_INCREMENT | Verifies write pointer increments correctly |
 | READ_PTR_INCREMENT | Verifies read pointer increments correctly |
 
+---
+### 📋 Assertion-Based Verification
 
+<details>
+<summary>Click to Expand</summary>
+
+| *****Assertion Check***** | *****Status***** |
+|---|---|
+| ***Write Enable X/Z Detection*** | PASSED |
+| ***Read Enable X/Z Detection*** | PASSED |
+| ***Data-In X/Z Detection*** | PASSED |
+| ***Data-Out X/Z Detection*** | PASSED |
+| ***Full Flag X/Z Detection*** | PASSED |
+| ***Empty Flag X/Z Detection*** | PASSED |
+| ***Write Pointer X/Z Detection*** | PASSED |
+| ***Read Pointer X/Z Detection*** | PASSED |
+| ***Reset Output Clearing Verification*** | PASSED |
+| ***Reset Dominance Over Write*** | PASSED |
+| ***Reset Dominance Over Read*** | PASSED |
+| ***Overflow Protection Verification*** | PASSED |
+| ***Underflow Protection Verification*** | PASSED |
+| ***Read Pointer Stability Verification*** | PASSED |
+| ***Write Pointer Stability Verification*** | PASSED |
+| ***Data-Out Stability Verification*** | PASSED |
+| ***Write Pointer Increment Verification*** | PASSED |
+| ***Read Pointer Increment Verification*** | PASSED |
+| ***Assertion Error Count*** | 0 |
+| ***Assertion Result*** | PASSED |
+
+---
+
+- **ENABLE_KNOWN** → Enable signals never contain X/Z
+- **DATA_IN_KNOWN** → Valid write data verification
+- **DATA_OUT_KNOWN** → Valid read data verification
+- **FULL_FLAG_KNOWN** → FULL flag validity verification
+- **EMPTY_FLAG_KNOWN** → EMPTY flag validity verification
+- **POINTER_KNOWN** → Internal pointer validity verification
+- **RESET_CLEARED** → Reset clearing verification
+- **RESET_DOMINATE_WRITE** → Reset priority over write operation
+- **RESET_DOMINATE_READ** → Reset priority over read operation
+- **OVERFLOW_PROTECTION** → Write Protection after Full to ensure data integrity
+- **UNDERFLOW_PROTECTION** → Read Protection after Empty
+- **READ_PTR_STABILITY** → Read pointer stability verification
+- **WRITE_PTR_STABILITY** → Write pointer stability verification
+- **FULL_EMPTY_NO_COLLISION** → FULL and EMPTY mutual exclusion
+
+</details>
 
 ---
 
