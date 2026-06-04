@@ -239,7 +239,7 @@ The verification includes:
 + SCOREBOARD VERIFICATION PASSED
 + ASYNCHRONOUS FIFO VERIFIED SUCCESSFULLY
 + DESIGN STATUS : PASSED
-- One unverified Feature is "Independent Reset", Because the Design is Incompattible for that
+- One unverified Feature is "Independent Resets", Because the Design is Incompattible for that
 ```
 
 ---
